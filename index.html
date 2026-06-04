@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Trading App</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<!-- 🔄 Загрузка при старте -->
+<div id="loader-screen">
+  <div class="loader-bar">
+    <div class="loader-fill"></div>
+  </div>
+</div>
+
+
+  <div class="app-wrapper">
+    <div id="app" class="theme-light">
+
+      <!-- 🔝 Верхний блок -->
+      <div class="top-bar">
+        <div class="theme-toggle">
+          <img src="IMG/colnc.png" id="light-btn" alt="Tema ligero" />
+          <img src="IMG/lyna.png" id="dark-btn" alt="Tema oscuro" />
+        </div>
+
+        <a href="https://t.me/+HCOThlSjM3RlMTEy" target="_blank" class="telegram-icon">
+          <img src="IMG/telegram.png" alt="Telegram" />
+        </a>
+
+        <div class="language-select" id="language-select">
+          <div class="selected-language" id="selected-language">
+            <img src="IMG/ru.png" alt="Русский" />
+            <span>España</span>
+          </div>
+          <div class="language-options" id="language-options">
+            <div class="language-option" data-lang="ru">
+              <img src="IMG/ru.png" alt="Русский" />
+              <span>España</span>
+            </div>
+            <div class="language-option" data-lang="en">
+              <img src="IMG/us.png" alt="English" />
+              <span>English</span>
+            </div>
+            <div class="language-option" data-lang="in">
+              <img src="IMG/in.png" alt="हिंदी" />
+              <span>हिंदी</span>
+            </div>
+            <div class="language-option" data-lang="uz">
+              <img src="IMG/uz.png" alt="O'zbek" />
+              <span>O'zbek</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="bot-icon">
+          <img src="IMG/menu.png" alt="Bot" />
+        </div>
+        </div>
+
+      <!-- 🔘 Кнопки рынков -->
+      <div class="menu-buttons">
+        <button class="menu-btn" id="otx-btn">OTC</button>
+        <button class="menu-btn" id="forex-btn">Forex</button>
+      </div>
+
+      <!-- ⚠️ Предупреждение о Форексе -->
+      <div id="forex-warning" class="warning-banner" style="display: none;">
+        <span id="forex-warning-text">Forex no disponible los fines de semana!</span>
+      </div>
+
+      <!-- 📊 Блок сигнала -->
+      <div class="signal-block">
+        <h3 id="signal-title">Recepción de señal OTC o Forex</h3>
+
+        <label for="pair-select" id="label-pair">Par de divisas</label>
+        <select id="pair-select">
+          <option value="EUR/USD">EUR/USD</option>
+          <option value="GBP/USD">GBP/USD</option>
+          <option value="USD/JPY">USD/JPY</option>
+          <option value="USD/CHF">USD/CHF</option>
+          <option value="AUD/USD">AUD/USD</option>
+          <option value="USD/CAD">USD/CAD</option>
+          <option value="NZD/USD">NZD/USD</option>
+          <option value="EUR/GBP">EUR/GBP</option>
+          <option value="EUR/JPY">EUR/JPY</option>
+          <option value="GBP/JPY">GBP/JPY</option>
+          <option value="EUR/CHF">EUR/CHF</option>
+          <option value="AUD/JPY">AUD/JPY</option>
+          <option value="CAD/JPY">CAD/JPY</option>
+          <option value="NZD/JPY">NZD/JPY</option>
+          <option value="GBP/CHF">GBP/CHF</option>
+          <option value="USD/SEK">USD/SEK</option>
+          <option value="USD/NOK">USD/NOK</option>
+```
+        </select>
+
+        <label for="expiry-select" id="label-expiry">Tiempo de caducidad</label>
+        <select id="expiry-select">
+          <option value="1m">1 minutos</option>
+          <option value="5m">5 minutos</option>
+          <option value="15m">15 minutos</option>
+          <option value="30m">30 minutos</option>
+        </select>
+
+        <button id="get-signal-btn" class="get-signal-btn">Recibir señal</button>
+        <p id="countdown-text" class="countdown-text"></p>
+      </div>
+
+      <!-- ⏳ Загрузка -->
+      <div id="signal-loading" class="signal-loading" style="display: none;">
+        <p id="loading-text">Analizar el mercado...</p>
+      </div>
+
+      <!-- ✅ Результат сигнала -->
+      <div id="signal-result" class="signal-result" style="display: none;">
+        <div class="signal-header">
+          <span id="label-time" class="signal-title"></span>
+          <span class="signal-time" id="signal-time"></span>
+        </div>
+
+<div class="signal-body">
+  <div class="signal-info">
+    <p id="label-pair-result" class="centered-text"></p>
+    <p id="signal-pair" class="centered-text"></p>
+
+    <p id="label-action" class="centered-text"></p>
+    <p id="signal-action" class="centered-text"></p>
+  </div>
+</div>
+
+
+          <div class="signal-details">
+            <div class="signal-box">
+              <p class="centered-text">
+                <span id="label-expiry-result">Tiempo de caducidad:</span>
+                <span id="signal-expiry"></span>
+              </p>
+            </div>
+            <div class="signal-box">
+              <p class="centered-text">
+                <span id="label-confidence">Nivel de confianza:</span>
+                <span id="signal-confidence" class="confidence-level"></span>
+              </p>
+            </div>
+          </div>
+
+          <div class="signal-box">
+            <h4 id="label-reason" class="centered-text">Razón</h4>
+            <p id="signal-reason-text" class="centered-text"></p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ⚠️ Плашка блокировки -->
+  <div id="market-warning" class="market-warning">
+    <span id="market-warning-text">⚠️ La transición entre los mercados no está disponible temporalmente</span>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
